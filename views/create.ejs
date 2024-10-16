@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<div class="mainGrid">
+    <div class="headerGrid">
+        <%- include('partials/header'); -%>
+    </div>
+    <div class="navGrid">
+        <%- include('partials/nav'); -%>
+    </div>
+    <div class="workstation">
+        <h1>Create product</h1>
+        <form action="/create/item" method="POST">
+            <label for="code">Code</label><br>
+            <input type="text" id="code" name="code"><br>
+            <label for="name">Name</label><br>
+            <input type="text" id="name" name="name"><br>
+            <label for="price">Unit price</label><br>
+            <input type="number" id="price" name="price" min="0"><br>
+           <!-- <label for="image">Image</label><br>
+            <input type="file" id="image" name="image" accept="image/png, image/gif, image/jpeg"><br>-->
+            <input type="submit" value="Submit">
+        </form>
+        <p>Statue:  <%= title %></p>
+    </div>
+
+</div>
+</body>
+</html>
