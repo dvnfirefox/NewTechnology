@@ -17,7 +17,7 @@ router.post('/item', async function (req, res, next) {
   console.log('Price:', price);
   statut = await createRow(code, name, price);
   res.render('create', {title: statut})
-});
+})
 
 module.exports = router;
 
@@ -39,7 +39,7 @@ async function createRow(code, name, price) {
 
     // New document to insert
     const newItem = {
-      id: code,  // You can generate this dynamically if needed
+      id: code,
       name: name,
       price: price
     };

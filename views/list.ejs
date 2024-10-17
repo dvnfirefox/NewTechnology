@@ -13,10 +13,20 @@
         <%- include('partials/nav'); -%>
     </div>
     <div class="workstation">
-        inventory management system
-        list
-    </div>
 
+        <ol id="myList">
+            <% if (result && result.length > 0) { %>
+                <% result.forEach(function(item) { %>
+                    <li class="listing">id: <%= item.id %><br>
+                        name: <%= item.name %><br>
+                        price: <%= item.price%>
+                    </li>
+                <% }); %>
+            <% } else { %>
+                <li>No items found</li>
+            <% } %>
+        </ol>
+    </div>
 </div>
 </body>
 </html>
