@@ -10,7 +10,7 @@ a {
 #header {
   display: flex;
   flex-direction: row;
-  background: #00B7FF;
+  background: gray;
 }
 #nav {
   display: flex;
@@ -35,7 +35,7 @@ a {
   grid-row-start: 2;
   grid-row-end: 3;
   height: 100%;
-  border: burlywood;
+  border: gray;
   border-style: solid;
 }
 .workstation {
@@ -43,7 +43,7 @@ a {
   grid-column-end: 3;
   grid-row-start: 2;
   grid-row-end: 3;
-  background: #00B7FF;
+  background: lightgray;
   height: 100%;
 }
 .listing{

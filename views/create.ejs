@@ -16,13 +16,13 @@
         <h1>Create product</h1>
         <form action="/create/item" method="POST">
             <label for="code">Code</label><br>
-            <input type="text" id="code" name="code"><br>
+            <input type="text" id="code" name="code" required><br>
             <label for="name">Name</label><br>
-            <input type="text" id="name" name="name"><br>
+            <input type="text" id="name" name="name" required><br>
             <label for="price">Unit price</label><br>
-            <input type="number" id="price" name="price" min="0"><br>
-           <!-- <label for="image">Image</label><br>
-            <input type="file" id="image" name="image" accept="image/png, image/gif, image/jpeg"><br>-->
+            <input type="number" id="price" name="price" min="0" required><br>
+            <label for="image">Image</label><br>
+            <input type="file" id="image" name="image" accept="image/png, image/gif, image/jpeg" required><br>
             <input type="submit" value="Submit">
         </form>
         <p>Statue:  <%= title %></p>
