@@ -12,8 +12,8 @@ module.exports = router;
 
 router.post('/search', async function (req, res, next) {
     const {search} = req.body;
-    res.render('create', {title: statut})
     let result = await accessdatabase(search);
+    console.log(result);
     res.render('list', {title: 'Express', result});
 })
 

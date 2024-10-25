@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>List</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
 </head>
 <body>
 <div class="mainGrid">
@@ -13,19 +13,25 @@
         <%- include('partials/nav'); -%>
     </div>
     <div class="workstation">
-
-        <ol id="myList">
+        <form action="/list/search" method="POST">
+            <input type="text" id="search" name="search" placeholder="search" >
+            <input type="submit" value="Submit">
+        </form>
+        <div id="listContainer">
             <% if (result && result.length > 0) { %>
                 <% result.forEach(function(item) { %>
-                    <li class="listing">id: <%= item.id %><br>
-                        name: <%= item.name %><br>
-                        price: <%= item.price%>
-                    </li>
+                    <%- include('partials/item', {
+                    itemCode: item._id,
+                    itemName: item.name,
+                    itemPrice: item.price,
+                    itemImage: item.image,
+                    itemQuantity: item.quantity
+                    }); -%>
                 <% }); %>
             <% } else { %>
-                <li>No items found</li>
+                <div>No items found</div>
             <% } %>
-        </ol>
+        </div>
     </div>
 </div>
 </body>

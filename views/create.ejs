@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
@@ -14,7 +16,7 @@
     </div>
     <div class="workstation">
         <h1>Create product</h1>
-        <form action="/create/item" method="POST">
+        <form action="/create/item" method="POST" enctype="multipart/form-data">
             <label for="code">Code</label><br>
             <input type="text" id="code" name="code" required><br>
             <label for="name">Name</label><br>
@@ -22,12 +24,11 @@
             <label for="price">Unit price</label><br>
             <input type="number" id="price" name="price" min="0" required><br>
             <label for="image">Image</label><br>
-            <input type="file" id="image" name="image" accept="image/png, image/gif, image/jpeg" required><br>
+            <input type="file" id="image" name="image" accept="image/*" required><br>
             <input type="submit" value="Submit">
         </form>
-        <p>Statue:  <%= title %></p>
+        <p>Status: <%= title %></p>
     </div>
-
 </div>
 </body>
 </html>

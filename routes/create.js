@@ -1,6 +1,13 @@
 var express = require('express');
 const { MongoClient } = require('mongodb');
+const fileUpload = require('express-fileupload')
+const {resolve} = require("node:path");
+const path = require("node:path");
 var router = express.Router();
+router.use(fileUpload({
+  limits: { fileSize: 50 * 1024 * 1024 },
+  tempFileDir: path.join(__dirname, 'temp'),
+}));
 
 // GET
 router.get('/', function(req, res, next) {
@@ -9,9 +16,15 @@ router.get('/', function(req, res, next) {
 
 // POST
 router.post('/item', async function (req, res, next) {
-  const {code, name, price, image} = req.body;
-  console.log(image);
-  statut = await createRow(code, name, price, image);
+  if (!req.files || !req.files.image) {
+    return res.status(400).send('No image file uploaded.');
+  }
+  let image = req.files.image;
+  const {code, name, price} = req.body;
+  pathImage = resolve('public/images', image.name);
+  image.mv(pathImage);
+  const relativePath = path.join('/images', image.name);
+  statut = await createRow(code, name, price, relativePath);
 
   res.render('create', {title: statut})
 })
