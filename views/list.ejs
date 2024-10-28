@@ -20,17 +20,19 @@
         <div id="listContainer">
             <% if (result && result.length > 0) { %>
                 <% result.forEach(function(item) { %>
-                    <%- include('partials/item', {
-                    itemCode: item._id,
-                    itemName: item.name,
-                    itemPrice: item.price,
-                    itemImage: item.image,
-                    itemQuantity: item.quantity
-                    }); -%>
-                <% }); %>
-            <% } else { %>
+                    <% if (!item.archived) { %>
+                        <%- include('partials/item', {
+                        itemCode: item._id,
+                        itemName: item.name,
+                        itemPrice: item.price,
+                        itemImage: item.image,
+                        itemQuantity: item.quantity
+                        }); -%>
+                <% }});
+                } else {%>
                 <div>No items found</div>
             <% } %>
+
         </div>
     </div>
 </div>

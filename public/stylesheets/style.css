@@ -30,8 +30,9 @@ align-items: center;
 
   padding: 1rem;
   align-content: flex-start;
-
-
+}
+#count {
+  width: 300px;
 }
 .mainGrid {
   width: 90%;
