@@ -13,8 +13,15 @@
         <%- include('partials/nav'); -%>
     </div>
     <div class="workstation">
-        inventory management system
-        receive
+        <h1>Receive Products</h1>
+        <form action="/receive/item" method="POST">
+            <label for="code:">Code:</label><br>
+            <input type="text" id="code" name="code" required><br>
+            <label for="quantity">Quantity Increase:</label><br>
+            <input type="number" id="quantity" name="quantity" min="1" value="1" required><br>
+            <input type="submit" value="Increase Stocks">
+        </form>
+        <p>Status: <%= title %></p>
     </div>
 
 </div>

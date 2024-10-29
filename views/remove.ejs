@@ -13,8 +13,13 @@
         <%- include('partials/nav'); -%>
     </div>
     <div class="workstation">
-        inventory management system
-        remove
+        <h1>Remove Products</h1>
+        <form action="/remove/item" method="POST">
+            <label for="code:">Code:</label><br>
+            <input type="text" id="code" name="code" required><br>
+            <input type="submit" value="Increase Stocks">
+        </form>
+        <p>Status: <%= title %></p>
     </div>
 
 </div>

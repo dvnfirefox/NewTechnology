@@ -26,7 +26,6 @@ async function accessdatabase(key) {
         const database = client.db('truckExpress');
         const collection = database.collection('item');
         const result = await collection.find({"name" : {$regex : key}}).toArray();
-        console.log(result);
         return result;
     } catch (err) {
         console.error(err);
